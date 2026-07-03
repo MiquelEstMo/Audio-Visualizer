@@ -12,12 +12,13 @@ def visualizer():
             data = audio.get_audio()
             data_amplitude, _ = fft.process_audio(data, audio.SAMPLE_RATE)
 
-            volumen = np.mean(data_amplitude[:50]) * 100
+            volumen = np.mean(data_amplitude[:50]) * 10
             length = int(min(volumen, 50))
 
             audio_bar = "█" * length
 
             print(f"Volum: {audio_bar:<50}", end="\r")
+            time.sleep(0.05)
 
 
     except KeyboardInterrupt:
